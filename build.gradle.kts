@@ -54,7 +54,9 @@ dependencies {
     implementation("net.datafaker:datafaker:1.+")
     implementation("com.github.ben-manes.caffeine:caffeine")
     implementation("org.springframework.boot:spring-boot-starter-security")
-   
+    implementation("io.micrometer:micrometer-core")
+
+
     implementation("com.graphql-java:graphql-java:19.2")
 
     testImplementation("org.springframework.boot:spring-boot-starter-test")
