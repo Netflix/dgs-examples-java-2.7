@@ -22,7 +22,7 @@ plugins {
     id("java")
     id("org.springframework.boot") version "2.7.3"
     id("io.spring.dependency-management") version "1.1.0"
-    id("com.netflix.dgs.codegen") version "5.6.0"
+    id("com.netflix.dgs.codegen") version "5.6.9"
 }
 apply(plugin = "com.netflix.dgs.codegen")
 
