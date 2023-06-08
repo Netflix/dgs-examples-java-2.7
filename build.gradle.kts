@@ -57,7 +57,7 @@ dependencies {
     implementation("io.micrometer:micrometer-core")
 
 
-    implementation("com.graphql-java:graphql-java:19.2")
+    implementation("com.graphql-java:graphql-java:20.4")
 
     testImplementation("org.springframework.boot:spring-boot-starter-test")
     testImplementation("com.netflix.graphql.dgs:graphql-dgs-client")
