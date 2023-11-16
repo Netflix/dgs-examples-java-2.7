@@ -20,21 +20,22 @@ import org.gradle.api.tasks.testing.logging.TestLogEvent.*
 
 plugins {
     id("java")
-    id("org.springframework.boot") version "2.7.3"
-    id("io.spring.dependency-management") version "1.1.0"
+    id("org.springframework.boot") version "2.7.17"
+    id("io.spring.dependency-management") version "1.1.4"
     id("com.netflix.dgs.codegen") version "5.11.1"
 }
 apply(plugin = "com.netflix.dgs.codegen")
 
 group = "com.example"
 version = "0.0.1-SNAPSHOT"
-java.sourceCompatibility = JavaVersion.VERSION_1_8
 
-// If you use Spring Boot Gradle Plugin 2.3.+ you will have to explicitly set the Kotlin Version to 1.4.+.
-// The plugin will downgrade Kotlin to its 1.3.x version, which is not compatible.
-// You do this by setting the version into the `extra["kotlin.version"]` e.g:
-//
-// extra["kotlin.version"] = "1.4.31"
+java {
+    toolchain {
+        languageVersion = JavaLanguageVersion.of(8)
+    }
+}
+
+extra["kotlin.version"] = "1.9.20"
 
 repositories {
     mavenCentral()
@@ -69,13 +70,6 @@ dependencies {
 tasks.withType<com.netflix.graphql.dgs.codegen.gradle.GenerateJavaTask> {
     generateClientv2 = true
     packageName = "com.example.demo.generated"
-}
-
-tasks.withType<JavaCompile> {
-    java {
-        targetCompatibility = JavaVersion.VERSION_1_8
-        sourceCompatibility = JavaVersion.VERSION_1_8
-    }
 }
 
 tasks.withType<Test> {
